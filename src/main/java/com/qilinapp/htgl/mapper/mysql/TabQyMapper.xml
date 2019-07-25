@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qilinapp.htgl.dao.ITabQyDao">
+	<sql id="fragment_qy">
+		<where>
+			<if test="qyid !=null and qyid !=''">
+				and qyid = #{qyid}
+			</if>
+			<if test="qymc !=null and qymc !=''">
+				and qymc = #{qymc}
+			</if>
+			<if test="dzhi !=null and dzhi !=''">
+				and dzhi = #{dzhi}
+			</if>
+			<if test="dhua !=null and dhua !=''">
+				and dhua = #{dhua}
+			</if>
+			<if test="by1 !=null and by1 !=''">
+				and by1 = #{by1}
+			</if>
+			<if test="by2 !=null and by2 !=''">
+				and by2 = #{by2}
+			</if>
+			<if test="by3 !=null and by3 !=''">
+				and by3 = #{by3}
+			</if>
+			<if test="by4 !=null and by4 !=''">
+				and by4 = #{by4}
+			</if>
+			<if test="by5 !=null and by5 !=''">
+				and by5 = #{by5}
+			</if>
+
+		</where>
+	</sql>
+	<select id="findQy" resultType="TabQy" parameterType="Map">
+		select * from tab_qy
+		<include refid="fragment_qy" />
+	</select>
+	
+</mapper>
+<!-- qyw -->

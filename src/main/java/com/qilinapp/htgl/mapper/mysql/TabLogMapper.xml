@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qilinapp.htgl.dao.ITabLogDao">
+	<sql id="fragment_log">
+		<where>
+			<if test="ipdz!=null and ipdz !=''">
+				and ipdz = #{ipdz}
+			</if>
+			<if test="qyidMh!=null and qyidMh !=''">
+				and qyid like CONCAT(#{qyidMh},'%')
+			</if>
+			<if test="rzsje != null and rzsje !=''">
+				<![CDATA[
+					and rzsj<=#{rzsje}
+				]]>
+			</if>
+			<if test="rzsjs != null and rzsjs !=''">
+				<![CDATA[
+					and rzsj>=#{rzsjs}
+				]]>
+			</if>
+		</where>
+	</sql>
+	<select id="findLog" resultType="TabLog" parameterType="Map">
+		select * from tab_log
+		<include refid="fragment_log" />
+	</select>
+	<select id="getCount" resultType="int" parameterType="Map">
+		select count(*) from tab_log
+		<include refid="fragment_log" />
+	</select>
+	<select id="findLogByPage" resultType="TabLog"
+		parameterType="Map">
+		select * from tab_log
+		<include refid="fragment_log" />
+   	<![CDATA[
+	    order by ${sort} ${order} limit #{startRow},#{rows}
+	]]>
+	</select>
+	<insert id="insertLog" parameterType="Map">
+		insert into tab_log
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="rzid != null">
+				rzid,
+			</if>
+			<if test="rzsj != null">
+				rzsj,
+			</if>
+			<if test="rzxx != null">
+				rzxx,
+			</if>
+			<if test="ipdz != null">
+				ipdz,
+			</if>
+			<if test="qyid != null">
+				qyid,
+			</if>
+			<if test="yhid != null">
+				yhid,
+			</if>
+			<if test="content != null">
+				content,
+			</if>
+			<if test="by1 != null">
+				by1,
+			</if>
+			<if test="by2 != null">
+				by2,
+			</if>
+			<if test="by3 != null">
+				by3,
+			</if>
+			<if test="by4 != null">
+				by4,
+			</if>
+			<if test="by5 != null">
+				by5,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="rzid != null">
+				#{rzid,jdbcType=VARCHAR},
+			</if>
+			<if test="rzsj != null">
+				#{rzsj,jdbcType=VARCHAR},
+			</if>
+			<if test="rzxx != null">
+				#{rzxx,jdbcType=VARCHAR},
+			</if>
+			<if test="ipdz != null">
+				#{ipdz,jdbcType=VARCHAR},
+			</if>
+			<if test="qyid != null">
+				#{qyid,jdbcType=VARCHAR},
+			</if>
+			<if test="yhid != null">
+				#{yhid,jdbcType=VARCHAR},
+			</if>
+			<if test="content != null">
+				#{content,jdbcType=VARCHAR},
+			</if>
+			<if test="by1 != null">
+				#{by1,jdbcType=VARCHAR},
+			</if>
+			<if test="by2 != null">
+				#{by2,jdbcType=VARCHAR},
+			</if>
+			<if test="by3 != null">
+				#{by3,jdbcType=VARCHAR},
+			</if>
+			<if test="by4 != null">
+				#{by4,jdbcType=VARCHAR},
+			</if>
+			<if test="by5 != null">
+				#{by5,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateLog" parameterType="TabLog">
+		update tab_log
+		<set>
+			<if test="rzsj != null">
+				rzsj = #{rzsj,jdbcType=VARCHAR},
+			</if>
+			<if test="nsrsbh != null">
+				nsrsbh = #{nsrsbh,jdbcType=VARCHAR},
+			</if>
+			<if test="rzxx != null">
+				rzxx = #{rzxx,jdbcType=VARCHAR},
+			</if>
+			<if test="ipdz != null">
+				ipdz = #{ipdz,jdbcType=VARCHAR},
+			</if>
+
+			<if test="fpqqlsh != null">
+				fpqqlsh = #{fpqqlsh,jdbcType=VARCHAR},
+			</if>
+			<if test="content != null">
+				content = #{content,jdbcType=VARCHAR},
+			</if>
+			<if test="yhid != null">
+				yhid = #{yhid,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+
+</mapper>
+<!-- qyw -->

@@ -1,0 +1,368 @@
+@charset "UTF-8";
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code,
+	form, fieldset, legend, input, button, textarea, p, blockquote, th, td,
+	a, img {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-family: "微软雅黑", "新宋体", "宋体";
+	font-size: 9pt;
+	size: 9pt;
+}
+
+img {
+	border: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+	color: #000;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: red;
+}
+
+.top-warp {
+	position: relative;
+	overflow: hidden;
+}
+
+.top-warp .top-bg {
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+	height: 46px;
+	max-height: 46px;
+	background-color: #438EB9;
+}
+
+.top-warp .top-bg img {
+	position: absolute;
+	width: 1920px;
+	height: 46px;
+	left: 50%;
+	margin-left: -960px;
+}
+
+.top-warp .logo {
+	overflow: hidden;
+	position: absolute;
+	z-index: 2;
+	margin-left: 70px;
+	top: 3px;
+}
+
+.top-warp .sysInfo-warp {
+	overflow: hidden;
+	position: absolute;
+	z-index: 2;
+	right: 10px;
+	top: 0px;
+}
+
+.top-warp .sysInfo-warp .sysInfo {
+	float: left;
+	height: 78px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	font-family: "微软雅黑";
+}
+
+.top-warp .sysInfo-warp .sysInfo ul li {
+	float: left;
+	display: block;
+	height: 46px;
+	line-height: 46px;
+	margin-right: 20px;
+}
+
+.top-warp .sysInfo-warp .sysFun {
+	float: right;
+	height: 78px;
+	color: #fff;
+	font-size: 14px;
+	font-family: "微软雅黑";
+}
+
+.top-warp .sysInfo-warp .sysFun ul li {
+	float: left;
+	display: block;
+	width: 100px;
+	height: 46px;
+	line-height: 46px;
+	margin-right: 5px;
+}
+
+.top-warp .sysInfo-warp .sysFun ul li a {
+	color: #fff;
+}
+
+.top-warp .sysInfo-warp .sysFun ul li .sys_icon {
+	float: left;
+	width: 28px;
+	height: 28px;
+	padding: 9px 0;
+}
+
+.top-warp .sysInfo-warp .sysFun ul li span {
+	display: block;
+	float: left;
+	height: 46px;
+	line-height: 46px;
+	margin-left: 5px;
+}
+
+.sysFootInfo {
+	float: right;
+	height: 20px;
+	color: #000;
+	font-size: 12px;
+	margin: 0 auto;
+}
+
+.sysFootInfo ul li {
+	float: left;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	margin-right: 20px;
+}
+
+/***************************************功能菜单样式*****************************************/
+.icon {
+	width: 18px;
+	line-height: 18px;
+	display: inline-block;
+}
+
+.icon-arrow {
+	background: url('../images/arrow.gif') no-repeat right;
+}
+
+.navlist {
+	list-style-type: none;
+	margin: 0px;
+	/*padding: 10px;*/
+}
+
+.navlist .arrow {
+	position: absolute;
+	right: 5px;
+	top: 10px;
+	width: 20px;
+	height: 10px;
+	background-image: url(../images/arrow.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+
+.navlist .arrow.down {
+	background-position: 0 -10px;
+}
+
+.navlist li {
+	padding: 0px;
+}
+
+.navlist li a {
+	display: block;
+	position: relative;
+	width: 100%;
+	line-height: 32px;
+}
+
+.navlist li div {
+	/*margin: 2px 0px;*/
+	padding-left: 20px;
+	padding-top: 2px;
+	/*border: 1px dashed #ffffff;*/
+	border-bottom: 1px solid #E5E5E5;
+	background: #F8F8F8;
+}
+
+.navlist li div.hover {
+	/*border: 1px dashed #99BBE8;*/
+	background: #FFFFFF;
+	cursor: pointer;
+}
+
+.navlist li div.hover a {
+	color: #416AA3;
+	text-decoration:none;
+}
+
+.navlist li div.selected {
+	/*border: 1px solid #99BBE8;*/
+	background: #FFFFFF;
+	cursor: default;
+}
+
+.navlist li div.selected a {
+	color: #416AA3;
+	font-weight: bold;
+}
+
+.third_ul {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	display: none;
+}
+
+.third_ul li div {
+	padding-left: 34px;
+}
+
+/***************************************表单样式*****************************************/
+body, th {
+	font-size: 9pt;
+	line-height: 20px;
+}
+
+td {
+	font-size: 9pt;
+	line-height: 40px;
+}
+
+/*页面中的样式*/
+.Current {
+	padding-top: 6px;
+	padding-left: 10px;
+	height: 18px;
+	vertical-align: middle;
+	margin: 2px 2px;
+	border-bottom: #476C99 solid 1px;
+	border-top: #476C99 solid 1px;
+	background-color: #CCE0F5;
+}
+
+fieldset {
+	display: block;
+	color: #000;
+	border: #ccc solid 1px;
+	margin: 2px 2px;
+	padding: 0 15px 15px 15px;
+}
+
+fieldset legend {
+	line-height: 20px;
+	font-size: 12px;
+	color: #000;
+}
+
+fieldset h2 {
+	font-weight: bold;
+	color: #000;
+	margin: .8em auto;
+}
+
+fieldset p {
+	line-height: 20px;
+	margin: .5em 1em;
+}
+
+fieldset ul {
+	margin: .5em 0;
+}
+
+fieldset ul li {
+	line-height: 25px;
+}
+
+/*list*/
+.table {
+	background: #EBEBEB;
+	margin: 5px auto;
+}
+
+.table td {
+	padding: 5px;
+	line-height: 20px;
+}
+
+.table img {
+	vertical-align: middle;
+}
+
+.table .title {
+	background: #F7F7F7;
+	color: #333;
+}
+
+.table .title1 {
+	background: #F7F7F7;
+	color: #333;
+	font-weight: bold;
+}
+
+.table .item {
+	color: #333;
+	background: #F7F7F7;
+}
+
+.table .item td, .table .item td {
+	background: #F7F7F7;
+	color: #333;
+}
+
+.table .red td, .table .red td {
+	background: #FFFFCC;
+	color: red;
+}
+
+.table .green td, .table .green td {
+	background: #fff;
+	color: green;
+}
+
+.table .line {
+	background: #fff;
+	color: #333;
+}
+
+.table .line:hover, .table .line:hover .next {
+	background-color: #fff;
+}
+
+.table .lines {
+	background: #fff;
+	color: #333;
+}
+
+.table .colspan {
+	background: #FFFFCC;
+	padding: 10px;
+	border-left: 5px solid #FF9900;
+}
+
+.table .key {
+	color: #000099;
+}
+
+.table .key1 {
+	color: red;
+}
+
+.tableTitle {
+	width: 99%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	color: blue;
+}
+
+/*# sourceMappingURL=style2.css.map */

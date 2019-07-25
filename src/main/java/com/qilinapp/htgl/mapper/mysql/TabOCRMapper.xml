@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qilinapp.htgl.dao.ITabOCRDao">
+	<sql id="fragment_ocr">
+		<where>
+			<if test="uuid !=null and uuid !=''">
+				and uuid = #{uuid}
+			</if>
+			<if test="createtime !=null and createtime !=''">
+				and createtime = #{createtime}
+			</if>
+			<if test="qyidMh!=null and qyidMh !=''">
+				and qyid like CONCAT(#{qyidMh},'%')
+			</if>
+			<if test="qyid !=null and qyid !=''">
+				and qyid = #{qyid}
+			</if>
+			<if test="yhid !=null and yhid !=''">
+				and yhid = #{yhid}
+			</if>
+			<if test="lx !=null and lx !=''">
+				and lx = #{lx}
+			</if>
+			<if test="tp !=null and tp !=''">
+				and tp = #{tp}
+			</if>
+			<if test="retmsg !=null and retmsg !=''">
+				and retmsg = #{retmsg}
+			</if>
+			<if test="by1 !=null and by1 !=''">
+				and by1 = #{by1}
+			</if>
+			<if test="by2 !=null and by2 !=''">
+				and by2 = #{by2}
+			</if>
+			<if test="by3 !=null and by3 !=''">
+				and by3 = #{by3}
+			</if>
+			<if test="by4 !=null and by4 !=''">
+				and by4 = #{by4}
+			</if>
+			<if test="by5 !=null and by5 !=''">
+				and by5 = #{by5}
+			</if>
+			<if test="scsje != null and scsje !=''">
+				<![CDATA[
+					and createtime<=#{scsje}
+				]]>
+			</if>
+			<if test="scsjs != null and scsjs !=''">
+				<![CDATA[
+					and createtime>=#{scsjs}
+				]]>
+			</if>
+		</where>
+	</sql>
+
+	<select id="findOCR" resultType="TabOCR" parameterType="Map">
+		select * from tab_ocr
+		<include refid="fragment_ocr" />
+	</select>
+
+	<select id="findOCRByPage" resultType="TabOCR"
+		parameterType="Map">
+		select uuid,createtime,qyid,yhid,lx,by1,by2,by3,by4,by5  from tab_ocr
+		<include refid="fragment_ocr" />
+   	<![CDATA[
+	    order by ${sort} ${order} limit #{startRow},#{rows}
+	]]>
+	</select>
+
+	<select id="getCount" resultType="int" parameterType="Map">
+		select count(*) from tab_ocr
+		<include refid="fragment_ocr" />
+
+	</select>
+
+
+	<insert id="insert" parameterType="Map">
+		insert into tab_ocr
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="uuid != null">
+				uuid,
+			</if>
+			<if test="createtime != null">
+				createtime,
+			</if>
+			<if test="qyid != null">
+				qyid,
+			</if>
+			<if test="yhid != null">
+				yhid,
+			</if>
+			<if test="lx != null">
+				lx,
+			</if>
+			<if test="tp != null">
+				tp,
+			</if>
+			<if test="retmsg != null">
+				retmsg,
+			</if>
+			<if test="by1 != null">
+				by1,
+			</if>
+			<if test="by2 != null">
+				by2,
+			</if>
+			<if test="by3 != null">
+				by3,
+			</if>
+			<if test="by4 != null">
+				by4,
+			</if>
+			<if test="by5 != null">
+				by5,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="uuid != null">
+				#{uuid,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=VARCHAR},
+			</if>
+			<if test="qyid != null">
+				#{qyid,jdbcType=VARCHAR},
+			</if>
+			<if test="yhid != null">
+				#{yhid,jdbcType=VARCHAR},
+			</if>
+			<if test="lx != null">
+				#{lx,jdbcType=VARCHAR},
+			</if>
+			<if test="tp != null">
+				#{tp,jdbcType=BLOB},
+			</if>
+			<if test="retmsg != null">
+				#{retmsg,jdbcType=LONGVARCHAR},
+			</if>
+			<if test="by1 != null">
+				#{by1,jdbcType=VARCHAR},
+			</if>
+			<if test="by2 != null">
+				#{by2,jdbcType=VARCHAR},
+			</if>
+			<if test="by3 != null">
+				#{by3,jdbcType=VARCHAR},
+			</if>
+			<if test="by4 != null">
+				#{by4,jdbcType=VARCHAR},
+			</if>
+			<if test="by5 != null">
+				#{by5,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+
+</mapper>
+<!-- qyw -->
